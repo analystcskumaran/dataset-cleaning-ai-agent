@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    image: your-image-name
+    container_name: app-container
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/app
+    environment:
+      - ENV_VARIABLE=your_value
+
+  db:
+    image: postgres:latest
+    container_name: db-container
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=your_db
+      - POSTGRES_USER=your_user
+      - POSTGRES_PASSWORD=your_password
+
+volumes:
+  db_data:
